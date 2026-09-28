@@ -25,7 +25,8 @@
     image: mcr.microsoft.com/mssql-tools
     container_name: homelibrary-mssql-init
     depends_on:
-      - mssql
+      mssql:
+        condition: service_healthy
     environment:
       MSSQL_SA_PASSWORD: "HomeLibrary_123!"
     volumes:

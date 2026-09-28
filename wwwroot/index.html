@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Домашняя библиотека</title>
+
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Домашняя библиотека</h1>
+
+        <button id="createBookButton">
+            Добавить книгу
+        </button>
+    </header>
+
+    <main>
+        <section class="toolbar">
+            <input id="searchInput"
+                   type="search"
+                   placeholder="Название, автор или оглавление">
+
+            <button id="searchButton">
+                Найти
+            </button>
+
+            <button id="cardViewButton">
+                Карточки
+            </button>
+
+            <button id="listViewButton">
+                Список
+            </button>
+        </section>
+
+        <section id="booksContainer" class="books cards">
+        </section>
+    </main>
+
+    <dialog id="bookDialog">
+        <form id="bookForm">
+            <h2 id="bookDialogTitle">Добавление книги</h2>
+
+            <label>
+                Название
+                <input id="bookTitle" type="text" required maxlength="300">
+            </label>
+
+            <label>
+                Год издания
+                <input id="bookYear" type="number" min="1" max="9999" required>
+            </label>
+
+            <div>
+                <label for="authorSearch">Авторы</label>
+
+                <input id="authorSearch"
+                       type="search"
+                       placeholder="Поиск автора">
+
+                <button type="button" id="createAuthorButton">
+                    Добавить автора
+                </button>
+
+                <div id="authorResults"></div>
+                <div id="selectedAuthors"></div>
+            </div>
+
+            <div>
+                <label>Оглавление</label>
+
+                <div class="editor-toolbar">
+                    <button type="button" data-command="bold">
+                        Жирный
+                    </button>
+
+                    <button type="button" data-command="italic">
+                        Курсив
+                    </button>
+                </div>
+
+                <div id="contentEditor"
+                     class="content-editor"
+                     contenteditable="true">
+                </div>
+            </div>
+
+            <div class="dialog-actions">
+                <button type="button" id="cancelBookButton">
+                    Отмена
+                </button>
+
+                <button type="submit">
+                    Сохранить
+                </button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="authorDialog">
+        <form id="authorForm">
+            <h2>Добавление автора</h2>
+
+            <label>
+                Фамилия
+                <input id="authorLastName"
+                       type="text"
+                       required
+                       maxlength="100">
+            </label>
+
+            <label>
+                Имя
+                <input id="authorFirstName"
+                       type="text"
+                       required
+                       maxlength="100">
+            </label>
+
+            <label>
+                Отчество
+                <input id="authorMiddleName"
+                       type="text"
+                       maxlength="100">
+            </label>
+
+            <div class="dialog-actions">
+                <button type="button" id="cancelAuthorButton">
+                    Отмена
+                </button>
+
+                <button type="submit">
+                    Добавить
+                </button>
+            </div>
+        </form>
+    </dialog>
+
+    <script type="module" src="/js/app.js"></script>
+</body>
+</html>

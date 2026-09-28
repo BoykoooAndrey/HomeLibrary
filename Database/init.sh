@@ -25,6 +25,8 @@ do
     sleep 2
 done
 
+echo "Waiting for SQL Server startup to complete..."
+sleep 10
 echo "Executing /scripts/01_CreateDatabase.sql..."
 
 "$SQLCMD" \
